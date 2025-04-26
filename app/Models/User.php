@@ -57,4 +57,14 @@ class User extends Authenticatable
     {
         return $this->belongsTo(UserRole::class);
     }
+
+    /**
+     * Get the sales associated with the user.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function sales()
+    {
+        return $this->hasOne(Sales::class);
+    }
 }
