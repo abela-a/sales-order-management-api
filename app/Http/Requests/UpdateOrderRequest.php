@@ -21,8 +21,10 @@ class UpdateOrderRequest extends FormRequest
      */
     public function rules(): array
     {
+        $id = $this->route('order');
+
         return [
-            'reference_no' => ['sometimes', 'string', 'max:255'],
+            'reference_no' => ['sometimes', 'string', 'max:255', 'unique:sales_orders,reference_no,'.$id],
             'sales_id' => ['sometimes', 'integer', 'exists:sales,id'],
             'customer_id' => ['sometimes', 'integer', 'exists:customers,id'],
 

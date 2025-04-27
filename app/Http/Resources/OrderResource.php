@@ -20,12 +20,12 @@ class OrderResource extends JsonResource
 
             $this->mergeWhen(
                 $this->relationLoaded('customer'),
-                ['customer' => new CustomerResource($this->customer)],
+                ['customer' => $this->customer],
                 ['customer_id' => $this->customer_id]
             ),
             $this->mergeWhen(
                 $this->relationLoaded('sales'),
-                ['sales' => new SalesResource($this->sales)],
+                ['sales' => $this->sales],
                 ['sales_id' => $this->sales_id]
             ),
             $this->mergeWhen(

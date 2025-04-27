@@ -56,6 +56,10 @@ class OrderRepository implements OrderRepositoryInterface
 
     public function store(array $data)
     {
+        if (! isset($data['reference_no'])) {
+            $data['reference_no'] = $this->generateReferenceNo();
+        }
+
         $order = Order::create($data);
 
         $products = Product::query()
@@ -80,6 +84,10 @@ class OrderRepository implements OrderRepositoryInterface
 
     public function update(array $data, $id)
     {
+        if (! isset($data['reference_no'])) {
+            $data['reference_no'] = $this->generateReferenceNo();
+        }
+
         $order = Order::findOrFail($id);
         $order->update($data);
 
@@ -116,5 +124,10 @@ class OrderRepository implements OrderRepositoryInterface
         $order->delete();
 
         Cache::forget('orders:'.$id);
+    }
+
+    public function generateReferenceNo()
+    {
+        return 'INV'.now()->timestamp.str_pad(Order::count() + 1, 7, '0', STR_PAD_LEFT);
     }
 }

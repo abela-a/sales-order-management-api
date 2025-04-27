@@ -20,7 +20,7 @@ class OrderItemResource extends ResourceCollection
 
                 $this->mergeWhen(
                     $item->relationLoaded('product'),
-                    ['product' => new ProductResource($item->product)],
+                    ['product' => $item->product],
                     [
                         'product_id' => $item->product_id,
                         'production_price' => $item->production_price,

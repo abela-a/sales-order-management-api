@@ -22,7 +22,7 @@ class StoreOrderRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'reference_no' => ['required', 'string', 'max:255'],
+            'reference_no' => ['sometimes', 'string', 'max:255', 'unique:sales_orders,reference_no'],
             'sales_id' => ['required', 'integer', 'exists:sales,id'],
             'customer_id' => ['required', 'integer', 'exists:customers,id'],
 
