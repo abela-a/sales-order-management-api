@@ -17,6 +17,245 @@
         }
     ],
     "paths": {
+        "/customers": {
+            "get": {
+                "tags": [
+                    "Customer"
+                ],
+                "summary": "Get all customers",
+                "description": "Get all customers with optional query parameters to filter, sort, and search customers.",
+                "operationId": "customer.index",
+                "parameters": [
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Search customers by name",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "perPage",
+                        "in": "query",
+                        "description": "Number of customers per page",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The request has succeeded"
+                    },
+                    "400": {
+                        "description": "The server cannot process the request due to client error"
+                    },
+                    "422": {
+                        "description": "The request was well-formed but contains semantic errors"
+                    },
+                    "500": {
+                        "description": "Something went wrong on the server"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Customer"
+                ],
+                "summary": "Create a new customer",
+                "description": "Create a new customer with the provided data.",
+                "operationId": "customer.store",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "address",
+                                    "phone"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "address": {
+                                        "type": "string"
+                                    },
+                                    "phone": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "name": "Budi",
+                                    "address": "Jl. Merdeka No. 1, Jakarta",
+                                    "phone": "081234567890"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "The resource has been created"
+                    },
+                    "400": {
+                        "description": "The server cannot process the request due to client error"
+                    },
+                    "422": {
+                        "description": "The request was well-formed but contains semantic errors"
+                    },
+                    "500": {
+                        "description": "Something went wrong on the server"
+                    }
+                }
+            }
+        },
+        "/customers/{id}": {
+            "get": {
+                "tags": [
+                    "Customer"
+                ],
+                "summary": "Get customer by ID",
+                "description": "Get customer by ID.",
+                "operationId": "customer.show",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Customer ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The request has succeeded"
+                    },
+                    "404": {
+                        "description": "The requested resource could not be found"
+                    },
+                    "400": {
+                        "description": "The server cannot process the request due to client error"
+                    },
+                    "422": {
+                        "description": "The request was well-formed but contains semantic errors"
+                    },
+                    "500": {
+                        "description": "Something went wrong on the server"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Customer"
+                ],
+                "summary": "Update customer by ID",
+                "description": "Update customer by ID with the provided data.",
+                "operationId": "customer.update",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Customer ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "address": {
+                                        "type": "string"
+                                    },
+                                    "phone": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "name": "Budi Santoso",
+                                    "address": "Jl. Merdeka No. 1, Jakarta Pusat",
+                                    "phone": "081234567891"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "The request has succeeded"
+                    },
+                    "404": {
+                        "description": "The requested resource could not be found"
+                    },
+                    "400": {
+                        "description": "The server cannot process the request due to client error"
+                    },
+                    "422": {
+                        "description": "The request was well-formed but contains semantic errors"
+                    },
+                    "500": {
+                        "description": "Something went wrong on the server"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Customer"
+                ],
+                "summary": "Delete customer by ID",
+                "description": "Delete customer by ID.",
+                "operationId": "customer.destroy",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Customer ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "The request has succeeded and the resource has been deleted"
+                    },
+                    "404": {
+                        "description": "The requested resource could not be found"
+                    },
+                    "400": {
+                        "description": "The server cannot process the request due to client error"
+                    },
+                    "500": {
+                        "description": "Something went wrong on the server"
+                    }
+                }
+            }
+        },
         "/reports/orders/monthly-trend": {
             "get": {
                 "tags": [
@@ -154,6 +393,10 @@
         }
     },
     "tags": [
+        {
+            "name": "Customer",
+            "description": "API endpoints for managing customers"
+        },
         {
             "name": "Report",
             "description": "API endpoints for reports"

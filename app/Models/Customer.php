@@ -28,4 +28,11 @@ class Customer extends Model
     {
         return $this->hasMany(Order::class);
     }
+
+    public function scopeSearch($query, $filter)
+    {
+        $query->when($filter ?? null, function ($query, $search) {
+            $query->where('name', 'LIKE', '%'.$search.'%');
+        });
+    }
 }
