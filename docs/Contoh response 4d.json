@@ -1,0 +1,43 @@
+{
+    "is_underperform": false,
+    "month": "March 2025",
+    "items": [
+      {
+        "sales": "Rahayu Lili Safitri",
+        "revenue": { "amount": "813301100.00", "abbreviation": "813.3M" },
+        "target": { "amount": "640000000.00", "abbreviation": "640M" },
+        "percentage": "127.08"
+      },
+      {
+        "sales": "Manah Cawisadi Adriansyah S.E.",
+        "revenue": { "amount": "723865500.00", "abbreviation": "723.87M" },
+        "target": { "amount": "520000000.00", "abbreviation": "520M" },
+        "percentage": "139.20"
+      },
+      {
+        "sales": "Okta Wacana",
+        "revenue": { "amount": "965982700.00", "abbreviation": "965.98M" },
+        "target": { "amount": "460000000.00", "abbreviation": "460M" },
+        "percentage": "210.00"
+      },
+      {
+        "sales": "Laila Paris Pudjiastuti S.Sos",
+        "revenue": { "amount": "893698200.00", "abbreviation": "893.7M" },
+        "target": { "amount": "830000000.00", "abbreviation": "830M" },
+        "percentage": "107.67"
+      },
+      {
+        "sales": "Yance Aurora Widiastuti M.Kom.",
+        "revenue": { "amount": "787134500.00", "abbreviation": "787.13M" },
+        "target": { "amount": "280000000.00", "abbreviation": "280M" },
+        "percentage": "281.12"
+      },
+      {
+        "sales": "Vicky Lailasari M.TI.",
+        "revenue": { "amount": "824927200.00", "abbreviation": "824.93M" },
+        "target": { "amount": "230000000.00", "abbreviation": "230M" },
+        "percentage": "358.66"
+      }
+    ]
+  }
+  

@@ -1,0 +1,91 @@
+{
+    "is_underperform": true,
+    "month": "March 2025",
+    "items": [
+      {
+        "sales": "Salimah Handayani",
+        "revenue": { "amount": "817196100.00", "abbreviation": "817.2M" },
+        "target": { "amount": "1540000000.00", "abbreviation": "1.54B" },
+        "percentage": "53.06"
+      },
+      {
+        "sales": "Hilda Eli Agustina",
+        "revenue": { "amount": "666257200.00", "abbreviation": "666.26M" },
+        "target": { "amount": "1030000000.00", "abbreviation": "1.03B" },
+        "percentage": "64.69"
+      },
+      {
+        "sales": "Virman Megantara",
+        "revenue": { "amount": "721347000.00", "abbreviation": "721.35M" },
+        "target": { "amount": "800000000.00", "abbreviation": "800M" },
+        "percentage": "90.17"
+      },
+      {
+        "sales": "Samiah Rina Haryanti M.Farm",
+        "revenue": { "amount": "697653000.00", "abbreviation": "697.65M" },
+        "target": { "amount": "1080000000.00", "abbreviation": "1.08B" },
+        "percentage": "64.60"
+      },
+      {
+        "sales": "Bella Juli Puspasari S.Psi",
+        "revenue": { "amount": "826665900.00", "abbreviation": "826.67M" },
+        "target": { "amount": "1290000000.00", "abbreviation": "1.29B" },
+        "percentage": "64.08"
+      },
+      {
+        "sales": "Respati Gilang Rajasa S.Gz",
+        "revenue": { "amount": "625959800.00", "abbreviation": "625.96M" },
+        "target": { "amount": "1060000000.00", "abbreviation": "1.06B" },
+        "percentage": "59.05"
+      },
+      {
+        "sales": "Ghani Prakosa Wibowo",
+        "revenue": { "amount": "686583300.00", "abbreviation": "686.58M" },
+        "target": { "amount": "810000000.00", "abbreviation": "810M" },
+        "percentage": "84.76"
+      },
+      {
+        "sales": "Murti Anggriawan S.I.Kom",
+        "revenue": { "amount": "936060600.00", "abbreviation": "936.06M" },
+        "target": { "amount": "1410000000.00", "abbreviation": "1.41B" },
+        "percentage": "66.39"
+      },
+      {
+        "sales": "Sarah Ulya Anggraini",
+        "revenue": { "amount": "752424500.00", "abbreviation": "752.42M" },
+        "target": { "amount": "1380000000.00", "abbreviation": "1.38B" },
+        "percentage": "54.52"
+      },
+      {
+        "sales": "Banawa Irawan S.T.",
+        "revenue": { "amount": "592753300.00", "abbreviation": "592.75M" },
+        "target": { "amount": "860000000.00", "abbreviation": "860M" },
+        "percentage": "68.92"
+      },
+      {
+        "sales": "Eva Wijayanti",
+        "revenue": { "amount": "1023749800.00", "abbreviation": "1.02B" },
+        "target": { "amount": "1110000000.00", "abbreviation": "1.11B" },
+        "percentage": "92.23"
+      },
+      {
+        "sales": "Teddy Pratama S.IP",
+        "revenue": { "amount": "663329300.00", "abbreviation": "663.33M" },
+        "target": { "amount": "820000000.00", "abbreviation": "820M" },
+        "percentage": "80.89"
+      },
+      {
+        "sales": "Jamal Bambang Rajata S.Sos",
+        "revenue": { "amount": "666294600.00", "abbreviation": "666.29M" },
+        "target": { "amount": "1470000000.00", "abbreviation": "1.47B" },
+        "percentage": "45.33"
+      },
+      {
+        "sales": "Calista Padmasari",
+        "revenue": { "amount": "895702700.00", "abbreviation": "895.7M" },
+        "target": { "amount": "1120000000.00", "abbreviation": "1.12B" },
+        "percentage": "79.97"
+      }
+    ]
+  }
+  
