@@ -27,8 +27,12 @@ class ApiResponse
         throw new HttpResponseException(response()->json(['message' => $message], 500));
     }
 
-    public static function sendResponse($result, $message, $code = 200)
+    public static function sendResponse($result, $message = null, $code = 200, $rawResponse = false)
     {
+        if ($rawResponse) {
+            return response()->json($result, $code);
+        }
+
         $response = [
             'success' => true,
             'data' => $result,
