@@ -50,7 +50,7 @@ class SalesTargetVsRevenueReportController extends Controller
 
             $cacheKey = 'reports.sales.target-vs-revenue|'.md5(json_encode($validated));
 
-            return Cache::remember($cacheKey, 0, function () use ($filters) {
+            return Cache::remember($cacheKey, 60, function () use ($filters) {
                 $items = $this->initializeItemsFormat($filters['year']);
 
                 $orders = Order::query()
