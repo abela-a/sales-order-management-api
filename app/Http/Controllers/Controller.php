@@ -15,7 +15,11 @@ use OpenApi\Attributes as OA;
         name: 'Abel Ardhana Simanungkalit',
         url: 'https://github.com/abela-a',
         email: 'work.abelardhana@gmail.com',
-    )
+    ),
+    OA\Tag(
+        name: 'Report',
+        description: 'API endpoints for reports',
+    ),
 ]
 abstract class Controller
 {

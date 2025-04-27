@@ -1,0 +1,74 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Sales & Order Management API",
+        "description": "Technical test for backend developer position at PT. Dibuiltadi Teknologi Kreatif",
+        "contact": {
+            "name": "Abel Ardhana Simanungkalit",
+            "url": "https://github.com/abela-a",
+            "email": "work.abelardhana@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000/api/v1",
+            "description": "Local V1"
+        }
+    ],
+    "paths": {
+        "/reports/orders/monthly-trend": {
+            "get": {
+                "tags": [
+                    "Report"
+                ],
+                "summary": "Get Monthly Trend Report for Orders",
+                "description": "Retrieve the monthly trend report for orders",
+                "operationId": "reports.orders.monthly-trend",
+                "parameters": [
+                    {
+                        "name": "customer_id",
+                        "in": "query",
+                        "description": "Filter by customer ID",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "sales_id",
+                        "in": "query",
+                        "description": "Filter by sales ID",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The request has succeeded"
+                    },
+                    "404": {
+                        "description": "The requested resource could not be found"
+                    },
+                    "400": {
+                        "description": "The server cannot process the request due to client error"
+                    },
+                    "422": {
+                        "description": "The request was well-formed but contains semantic errors"
+                    },
+                    "500": {
+                        "description": "Something went wrong on the server"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Report",
+            "description": "API endpoints for reports"
+        }
+    ]
+}
