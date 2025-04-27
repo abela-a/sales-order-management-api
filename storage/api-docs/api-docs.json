@@ -256,6 +256,302 @@
                 }
             }
         },
+        "/orders": {
+            "get": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "Get all orders",
+                "description": "Get all orders with optional query parameters to filter, sort, and search orders.",
+                "operationId": "order.index",
+                "parameters": [
+                    {
+                        "name": "reference_no",
+                        "in": "query",
+                        "description": "Filter orders by reference number",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "sales_id",
+                        "in": "query",
+                        "description": "Filter orders by sales ID",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "customer_id",
+                        "in": "query",
+                        "description": "Filter orders by customer ID",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "perPage",
+                        "in": "query",
+                        "description": "Number of orders per page",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The request has succeeded"
+                    },
+                    "400": {
+                        "description": "The server cannot process the request due to client error"
+                    },
+                    "422": {
+                        "description": "The request was well-formed but contains semantic errors"
+                    },
+                    "500": {
+                        "description": "Something went wrong on the server"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "Create a new order",
+                "description": "Create a new order with the provided data.",
+                "operationId": "order.store",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "reference_no",
+                                    "sales_id",
+                                    "customer_id",
+                                    "items"
+                                ],
+                                "properties": {
+                                    "reference_no": {
+                                        "type": "string"
+                                    },
+                                    "sales_id": {
+                                        "type": "integer"
+                                    },
+                                    "customer_id": {
+                                        "type": "integer"
+                                    },
+                                    "items": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object"
+                                        }
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "reference_no": "INV00000000000000000",
+                                    "sales_id": 1,
+                                    "customer_id": 1,
+                                    "items": [
+                                        {
+                                            "product_id": 1,
+                                            "quantity": 2
+                                        },
+                                        {
+                                            "product_id": 2,
+                                            "quantity": 1
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "The resource has been created"
+                    },
+                    "400": {
+                        "description": "The server cannot process the request due to client error"
+                    },
+                    "422": {
+                        "description": "The request was well-formed but contains semantic errors"
+                    },
+                    "500": {
+                        "description": "Something went wrong on the server"
+                    }
+                }
+            }
+        },
+        "/orders/{id}": {
+            "get": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "Get order by ID",
+                "description": "Get order by ID.",
+                "operationId": "order.show",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Order ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The request has succeeded"
+                    },
+                    "404": {
+                        "description": "The requested resource could not be found"
+                    },
+                    "400": {
+                        "description": "The server cannot process the request due to client error"
+                    },
+                    "422": {
+                        "description": "The request was well-formed but contains semantic errors"
+                    },
+                    "500": {
+                        "description": "Something went wrong on the server"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "Update order by ID",
+                "description": "Update order by ID with the provided data.",
+                "operationId": "order.update",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Order ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "reference_no",
+                                    "sales_id",
+                                    "customer_id",
+                                    "items"
+                                ],
+                                "properties": {
+                                    "reference_no": {
+                                        "type": "string"
+                                    },
+                                    "sales_id": {
+                                        "type": "integer"
+                                    },
+                                    "customer_id": {
+                                        "type": "integer"
+                                    },
+                                    "items": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object"
+                                        }
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "reference_no": "INV00000000000000001",
+                                    "sales_id": 2,
+                                    "customer_id": 2,
+                                    "items": [
+                                        {
+                                            "product_id": 2,
+                                            "quantity": 4
+                                        },
+                                        {
+                                            "product_id": 3,
+                                            "quantity": 5
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "The request has succeeded"
+                    },
+                    "404": {
+                        "description": "The requested resource could not be found"
+                    },
+                    "400": {
+                        "description": "The server cannot process the request due to client error"
+                    },
+                    "422": {
+                        "description": "The request was well-formed but contains semantic errors"
+                    },
+                    "500": {
+                        "description": "Something went wrong on the server"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Order"
+                ],
+                "summary": "Delete order by ID",
+                "description": "Delete order by ID.",
+                "operationId": "order.destroy",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Order ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "The request has succeeded and the resource has been deleted"
+                    },
+                    "404": {
+                        "description": "The requested resource could not be found"
+                    },
+                    "400": {
+                        "description": "The server cannot process the request due to client error"
+                    },
+                    "500": {
+                        "description": "Something went wrong on the server"
+                    }
+                }
+            }
+        },
         "/reports/orders/monthly-trend": {
             "get": {
                 "tags": [
@@ -396,6 +692,10 @@
         {
             "name": "Customer",
             "description": "API endpoints for managing customers"
+        },
+        {
+            "name": "Order",
+            "description": "API endpoints for managing orders"
         },
         {
             "name": "Report",
