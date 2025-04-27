@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Phone;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreCustomerRequest extends FormRequest
@@ -24,7 +25,7 @@ class StoreCustomerRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:255'],
             'address' => ['required', 'string', 'max:255'],
-            'phone' => ['required', 'string', 'max:15'],
+            'phone' => ['required', new Phone],
         ];
     }
 }
