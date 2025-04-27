@@ -64,6 +64,56 @@
                 }
             }
         },
+        "/reports/sales/performance-statistic": {
+            "get": {
+                "tags": [
+                    "Report"
+                ],
+                "summary": "Get Sales Performance Statistics Report",
+                "description": "Retrieve performance statistics comparing sales revenue against targets",
+                "operationId": "reports.sales.performance-statistic",
+                "parameters": [
+                    {
+                        "name": "month",
+                        "in": "query",
+                        "description": "The month to filter the report (range 1-12)",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "maximum": 12,
+                            "minimum": 1,
+                            "example": 3
+                        }
+                    },
+                    {
+                        "name": "is_underperform",
+                        "in": "query",
+                        "description": "Filter for underperforming sales targets",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The request has succeeded"
+                    },
+                    "404": {
+                        "description": "The requested resource could not be found"
+                    },
+                    "400": {
+                        "description": "The server cannot process the request due to client error"
+                    },
+                    "422": {
+                        "description": "The request was well-formed but contains semantic errors"
+                    },
+                    "500": {
+                        "description": "Something went wrong on the server"
+                    }
+                }
+            }
+        },
         "/reports/sales/target-vs-actual-revenue": {
             "get": {
                 "tags": [

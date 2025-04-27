@@ -11,6 +11,7 @@ Route::prefix('v1')->group(function () {
 
         Route::prefix('sales')->group(function () {
             Route::get('target-vs-actual-revenue', Report\SalesTargetVsRevenueReportController::class);
+            Route::get('performance-statistic', Report\SalesPerformanceStatisticReportController::class);
         });
     });
 });
