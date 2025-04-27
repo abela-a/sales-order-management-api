@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Report;
 
 use App\Helpers\ApiResponse;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\SalesPerformanceStatisticReportRequest;
+use App\Http\Requests\QuerySalesPerformanceStatisticReportRequest;
 use App\Models\Order;
 use App\Models\SalesTarget;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -45,7 +45,7 @@ class SalesPerformanceStatisticReportController extends Controller
             new OA\Response(response: Response::HTTP_INTERNAL_SERVER_ERROR, description: 'Something went wrong on the server'),
         ],
     )]
-    public function __invoke(SalesPerformanceStatisticReportRequest $request)
+    public function __invoke(QuerySalesPerformanceStatisticReportRequest $request)
     {
         try {
             $validated = $request->validated();

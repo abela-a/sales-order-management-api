@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Report;
 
 use App\Helpers\ApiResponse;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\SalesTargetVsRevenueRequest;
+use App\Http\Requests\QuerySalesTargetVsRevenueRequest;
 use App\Models\Order;
 use App\Models\SalesTarget;
 use Carbon\Carbon;
@@ -38,7 +38,7 @@ class SalesTargetVsRevenueReportController extends Controller
             new OA\Response(response: Response::HTTP_INTERNAL_SERVER_ERROR, description: 'Something went wrong on the server'),
         ],
     )]
-    public function __invoke(SalesTargetVsRevenueRequest $request)
+    public function __invoke(QuerySalesTargetVsRevenueRequest $request)
     {
         try {
             $validated = $request->validated();

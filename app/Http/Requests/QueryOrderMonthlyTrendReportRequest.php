@@ -2,10 +2,11 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Customer;
 use App\Models\Sales;
 use Illuminate\Foundation\Http\FormRequest;
 
-class SalesTargetVsRevenueRequest extends FormRequest
+class QueryOrderMonthlyTrendReportRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,8 +24,21 @@ class SalesTargetVsRevenueRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'customer_id' => ['sometimes', 'integer', 'exists:customers,id'],
             'sales_id' => ['sometimes', 'integer', 'exists:sales,id'],
         ];
+    }
+
+    /**
+     * Get the customer from the validated request.
+     *
+     * @return \App\Models\Customer|null
+     */
+    public function getCustomer()
+    {
+        return isset($this->validated()['customer_id'])
+            ? Customer::select('id', 'name')->find($this->validated()['customer_id'])
+            : null;
     }
 
     /**
