@@ -12,6 +12,12 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Cache;
 use OpenApi\Attributes as OA;
 
+#[
+    OA\Tag(
+        name: 'Report',
+        description: 'API endpoints for reports',
+    ),
+]
 class OrderMonthlyTrendReportController extends Controller
 {
     #[OA\Get(
