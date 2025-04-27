@@ -37,8 +37,7 @@ describe('index', function () {
     });
 
     it('gets customers by search', function () {
-        $customer = \App\Models\Customer::first();
-        $response = $this->getJson('/api/v1/customers?search='.urlencode(substr($customer->name, 0, 3)));
+        $response = $this->getJson('/api/v1/customers?search=Yayasan');
 
         $response
             ->assertOk()
