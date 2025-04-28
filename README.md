@@ -173,6 +173,7 @@ The following features are planned for future development:
 -   [ ] Secure application with authentication
 -   [ ] Implement role-based access control
 -   [ ] Add Github Action to format and testing the code
+-   [ ] Enhance test coverage with integration and performance tests
 
 ---
 
