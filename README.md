@@ -120,6 +120,24 @@ After starting the Docker containers, you can access the application at:
 http://localhost:8000
 ```
 
+### Docker Database Setup
+
+After the containers are running, you need to set up the database:
+
+Run database migrations inside the Docker container:
+
+```sh
+docker-compose exec app php artisan migrate
+```
+
+### Executing Artisan Commands in Docker
+
+You can run any Laravel Artisan command inside the Docker container using:
+
+```sh
+docker-compose exec app php artisan [command]
+```
+
 ---
 
 ## 🔖 API Documentation
