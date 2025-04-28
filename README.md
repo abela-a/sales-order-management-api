@@ -163,6 +163,19 @@ herd coverage ./vendor/bin/pest
 
 ---
 
+## 📋 Todo List
+
+The following features are planned for future development:
+
+-   [ ] Complete CRUD for Product
+-   [ ] Complete CRUD for Sales, SalesArea, SalesTarget
+-   [ ] Complete CRUD for User, UserRole
+-   [ ] Secure application with authentication
+-   [ ] Implement role-based access control
+-   [ ] Add Github Action to format and testing the code
+
+---
+
 ## 📧 Contact
 
 I would greatly appreciate any feedback on my work, as it will help me improve and grow as a developer. If you have any comments, suggestions, or questions regarding this project, please feel free to reach out:
