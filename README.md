@@ -1,61 +1,174 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 💵 Sales & Order API
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Technical test for backend developer position at PT. Dibuiltadi Teknologi Kreatif. This repository contains a complete RESTful API for a Sales & Order System. The API manages customer, order, product, sales, and user, allowing operations such as creation, retrieval, update, and deletion of records. This project demonstrates clean code design, database schema implementation, unit testing, and performance tuning techniques.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 📑 About this Project
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+This project showcases my backend development expertise, with a focus on designing and implementing robust, scalable, and maintainable APIs. Laravel is a highly popular framework widely adopted in production environments. It offers numerous built-in features that simplify handling a variety of use cases. Another reason for choosing Laravel is my extensive experience with it. I have been using the framework for over four years. This familiarity allows me to efficiently apply its best practices to deliver high-quality solutions.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Tech Stack
 
-## Learning Laravel
+-   Language: PHP `8.2`
+-   Framework: Laravel `12.10`
+-   Database: MySQL `8.0`
+-   Documentation: Swagger
+-   Testing: Pest
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Design Pattern
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+I use the Repository Design Pattern in this project. The Repository Design Pattern in Laravel is utilized to separate data access logic from the business logic of the application. This approach offers benefits such as more structured code, easier testing, and flexibility to accommodate changes. By using a repository, you can replace or modify the data source (e.g., switching from a database to an external API) without altering the business logic in controllers or services. Additionally, this pattern facilitates the implementation of SOLID principles, particularly the Dependency Inversion Principle, as controllers or services depend only on contracts (interfaces) rather than direct implementations. This makes the application easier to maintain and extend.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## ⚡ Getting Started
 
-## Laravel Sponsors
+### Requirements
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+-   PHP >= 8.2
+-   Composer
+-   MySQL
 
-### Premium Partners
+### Installation
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development/)**
-- **[Active Logic](https://activelogic.com)**
+1. Clone the repository:
 
-## Contributing
+    ```sh
+    git clone https://github.com/abela-a/sales-order-management-api.git
+    ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+2. Navigate to the project directory:
 
-## Code of Conduct
+    ```sh
+    cd sales-order-management-api
+    ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+3. Install dependencies:
 
-## Security Vulnerabilities
+    ```sh
+    composer install
+    ```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+4. Set up the environment file:
 
-## License
+    ```sh
+    cp .env.example .env
+    ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+    Configure the database and other environment variables as needed.
+
+    ```env
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=technical_test_dibuiltadi
+    DB_USERNAME=root
+    DB_PASSWORD=
+    ```
+
+5. Generate app key for encryption:
+
+    ```sh
+    php artisan key:generate
+    ```
+
+6. Run migrations and seed the database:
+
+    ```sh
+    php artisan migrate
+    ```
+
+### Running the Project
+
+To start the project locally, use the following command:
+
+```sh
+php artisan serve
+```
+
+---
+
+## 🐳 Docker Setup
+
+This project supports Docker deployment for easy setup and consistent environments across different machines.
+
+### Prerequisites
+
+-   Docker installed on your system
+-   Docker Compose installed on your system
+
+### Running with Docker
+
+Build and start the containers:
+
+```sh
+docker-compose up -d
+```
+
+### Docker Services
+
+The Docker setup includes the following services:
+
+-   **app**: PHP application container
+-   **db**: MySQL database container
+-   **nginx**: Web server container
+
+### Accessing the Application
+
+After starting the Docker containers, you can access the application at:
+
+```
+http://localhost:8000
+```
+
+---
+
+## 🔖 API Documentation
+
+The API documentation is available via Swagger. Once the project is running, visit the following URL to explore the endpoints:
+
+```
+http://localhost:8000/api/documentation
+```
+
+---
+
+## 📝 Testing
+
+Unit and feature tests are implemented using Pest to ensure the reliability of the API. Run tests using:
+
+### ⚠️ Testing Requirements
+
+Before running tests, ensure you have a dedicated testing database configured. This prevents your development or production data from being affected during testing.
+
+1. Add a testing database configuration to your `.env.testing` file:
+
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=testing
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+2. Run the tests using one of the following commands:
+
+```bash
+php artisan test
+# or
+./vendor/bin/pest
+# or HERD
+herd coverage ./vendor/bin/pest
+```
+
+---
+
+## 📧 Contact
+
+I would greatly appreciate any feedback on my work, as it will help me improve and grow as a developer. If you have any comments, suggestions, or questions regarding this project, please feel free to reach out:
+
+-   **Name**: Abel A Simanungkalit
+-   **Email**: [work.abelardhana@gmail.com](mailto:work.abelardhana@gmail.com)
+-   **GitHub Profile**: [https://github.com/abela-a](https://github.com/abela-a)
+
+Thank you for taking the time to review this project!
